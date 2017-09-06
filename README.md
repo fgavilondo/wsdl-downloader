@@ -1,17 +1,19 @@
-# wsdl-downloader
+# Python script to download WSDL files, referenced schemas, and rename references locally
 
-Python script to download WSDL files, its child WSDLs and referenced schemas, and rename references locally
+Does not work with Python 3.x. Python 2.7 available [here](https://www.python.org/downloads/)
 
 Usage:
 
-    python wsdldownloader.py url [path]
+    python wsdldownloader.py url wsdl-schema-mapping xml-schema-mapping [path]
 
-where url is the WSDL url, and path is the output location for the WSDL and XSD files. Path is optional, if not specified the current directory will be used.
+* url: The url of the WSDL to download.
+* wsdl-schema-mapping: Name of the WSDL schema namespace mapping in your WSDL. Usually "wsdl", e.g. xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+* xml-schema-mapping: Name of the XML schema namespace mapping in your WSDL. Usually "xsd", e.g. xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+* path: the output location for the WSDL and XSD files. If not specified the current directory will be used.
 
 Examples:
 
-    python wsdldownloader.py http://hostname.domain.com/service?wsdl C:\temp
-    python wsdldownloader.py http://hostname.domain.com/service?wsdl /home/username/downloads
-    python wsdldownloader.py http://hostname.domain.com/service?wsdl .
-    python wsdldownloader.py http://hostname.domain.com/service?wsdl
+    python wsdldownloader.py http://hostname.domain.com/service?wsdl wsdl xsd C:\temp
+    python wsdldownloader.py http://hostname.domain.com/service?wsdl wsdl xsd /home/username/downloads
+    python wsdldownloader.py http://hostname.domain.com/service?wsdl w s
 
